@@ -5,6 +5,11 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.widget.TextView;
 
+/**
+ * 获取手机屏幕宽高
+ * @author susan
+ *
+ */
 public class MainControlActivity extends Activity {
 	private float width;
 	private float height;
@@ -17,7 +22,7 @@ public class MainControlActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main_control_layout);
+		setContentView(R.layout.home_main);
 		
 		DisplayMetrics metric = new DisplayMetrics();
 	      getWindowManager().getDefaultDisplay().getMetrics(metric);

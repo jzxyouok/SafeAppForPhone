@@ -12,16 +12,18 @@
         -->
     </style>
 
-    <!-- Application theme. -->
+    <!-- Application theme.   这样既使用了Light.NoTitleBar，又使用了4.0的UI  不然还是旧版本的UI-->
     <style name="AppTheme" parent="AppBaseTheme">
         <item name="android:windowNoTitle">true</item>
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
+    <!-- 首页的标题文字 -->
     <style name="splash_title">
         <item name="android:textColor">#ffffff</item>
         <item name="android:textSize">24sp</item>
         
     </style>
+    <!-- 首页版本号文字 -->
     <style name="splash_version">
         <item name="android:textColor">#ffffff</item>
         <item name="android:textSize">14sp</item>
