@@ -28,6 +28,7 @@
         <activity android:name="com.gree.parsexml.HomeActivity"></activity>
         <activity android:name="com.gree.parsexml.NewVersionToast"
             android:theme="@android:style/Animation.Dialog"></activity>
+    	<activity android:name="com.gree.parsexml.SettingActivity"></activity>
     </application>
 
 </manifest>

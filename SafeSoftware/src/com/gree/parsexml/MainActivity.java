@@ -17,6 +17,7 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -57,6 +58,8 @@ public class MainActivity extends Activity {
 	private RelativeLayout rl;
 	private TextView progress;
 
+	private SharedPreferences sp;
+
 	private Handler handler = new Handler() {
 
 		@Override
@@ -86,7 +89,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.splash);
 		initView();
 		initListener();
-		checkVersion();
+
 	}
 
 	public void initView() {
@@ -111,20 +114,42 @@ public class MainActivity extends Activity {
 		// 设置渐变动画
 		rl = (RelativeLayout) findViewById(R.id.rl);
 		rl.startAnimation(aanim);
-		//进度
-		progress=(TextView)findViewById(R.id.progress);
-		
+		// 进度
+		progress = (TextView) findViewById(R.id.progress);
+		// sp
+		sp = getSharedPreferences("updata", MODE_PRIVATE);
 	}
 
 	public void initListener() {
+		/**
+		 * 进度条动画
+		 */
 		loadingImg.postDelayed(new Runnable() {
 
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
+				// loading动画
 				ad.start();
 			}
 		}, 100);
+		/**
+		 * 是否要升级
+		 */
+		boolean updata = sp.getBoolean("updata", false);
+		if (updata) {
+			checkVersion();
+		} else {
+			// 自动升级关闭
+			handler.postDelayed(new Runnable() {
+
+				@Override
+				public void run() {
+					// 进入主界面
+					enterHome();
+
+				}
+			}, 2000);
+		}
 	}
 
 	/**
@@ -232,16 +257,16 @@ public class MainActivity extends Activity {
 		AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
 		dialog.setTitle("呵呵，你想删了我？");
 		dialog.setMessage("呵呵，你觉得我会恩准你吗？");
-//		dialog.setCancelable(false);//这个选项会导致点击手机返回键或者对话框空白处没反应，对话框强制存在  慎用
-		//点击返回框或者空白处对话框消失
+		// dialog.setCancelable(false);//这个选项会导致点击手机返回键或者对话框空白处没反应，对话框强制存在 慎用
+		// 点击返回框或者空白处对话框消失
 		dialog.setOnCancelListener(new OnCancelListener() {
-			
+
 			@Override
 			public void onCancel(DialogInterface dialog) {
-				//进入主界面
+				// 进入主界面
 				enterHome();
-				dialog.dismiss();//注销对话框
-				
+				dialog.dismiss();// 注销对话框
+
 			}
 		});
 		dialog.setPositiveButton("呵呵", new DialogInterface.OnClickListener() {
@@ -259,41 +284,47 @@ public class MainActivity extends Activity {
 									+ "/safeApp2.0.apk",
 							new AjaxCallBack<File>() {
 
-								//下载失败
+								// 下载失败
 								@Override
 								public void onFailure(Throwable t, int errorNo,
 										String strMsg) {
 									super.onFailure(t, errorNo, strMsg);
-									//下载失败
+									// 下载失败
 									UIUtils.showToast(MainActivity.this, "下载失败");
 
 								}
-								//count:要下载文件的总大小 current:当前下载位置
+
+								// count:要下载文件的总大小 current:当前下载位置
 								@Override
 								public void onLoading(long count, long current) {
 									super.onLoading(count, current);
 									progress.setVisibility(View.VISIBLE);
-									//显示进度
-									int progressValue=(int) (current*100/count);
-									progress.setText(progressValue+"%");
+									// 显示进度
+									int progressValue = (int) (current * 100 / count);
+									progress.setText(progressValue + "%");
 
 								}
-								//下载成功
+
+								// 下载成功
 								@Override
 								public void onSuccess(File t) {
 									super.onSuccess(t);
 									UIUtils.showToast(MainActivity.this, "下载成功");
-									//安装应用
+									// 安装应用
 									installApk(t);
 								}
+
 								/**
-								 * 安装apk   用意图安装
+								 * 安装apk 用意图安装
+								 * 
 								 * @param t
 								 */
 								private void installApk(File t) {
-									Intent intent=new Intent("android.intent.action.View");
-									intent.addCategory("android.intent.category.DEFAULT");//类型
-									intent.setDataAndType(Uri.fromFile(t), "application/vnd.android.package-archive");
+									Intent intent = new Intent(
+											"android.intent.action.View");
+									intent.addCategory("android.intent.category.DEFAULT");// 类型
+									intent.setDataAndType(Uri.fromFile(t),
+											"application/vnd.android.package-archive");
 									startActivity(intent);
 								}
 
@@ -310,7 +341,7 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				// 不升级  注销对话框
+				// 不升级 注销对话框
 				dialog.dismiss();
 				enterHome();
 			}

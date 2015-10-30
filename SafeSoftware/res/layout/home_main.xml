@@ -3,26 +3,41 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
+    <!-- 滚动 -->
+    <com.gree.wedget.MyTextView 
+        android:layout_width="wrap_content"
+        android:layout_height="20dp"
+        android:background="#cc9999"
+        android:text="大家快来下载啊····大家快来下载啊···大家快来下载啊···大家快来下载啊···大家快来下载啊...大家快来下载啊...大家快来下载啊"
+        android:singleLine="true"
+        android:ellipsize="marquee"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        />
+    
     <TextView 
         android:id="@+id/screen"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
         android:gravity="center_vertical|center_horizontal"
         android:textSize="20sp"
-        android:text="GireView写的界面，功能列表："
-        android:background="#cc66cc"/>
+        android:text="GirdView写的界面，功能列表："
+        android:background="#cc9999"
+        android:focusableInTouchMode="true"/>
+    
     <GridView 
         android:id="@+id/my_gridview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_gravity="center"
         android:scrollbars="none"
         android:stretchMode="columnWidth"
-        android:verticalSpacing="10dp"
+        android:verticalSpacing="20dp"
         android:numColumns="3"
         android:columnWidth="90dp"
         android:gravity="center"
-        android:horizontalSpacing="10dp">
-        
+        android:horizontalSpacing="10dp"
+        android:background="#ff9999">
         
     </GridView>
     
