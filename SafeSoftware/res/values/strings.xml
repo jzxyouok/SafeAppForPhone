@@ -5,5 +5,22 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="version">version 1.0.0</string>
+    <string name="refrigerator">冰箱</string>
+    <string name="code_storage_room">冷藏室</string>
+    <string name="ice_maked_room">制冰室</string>
+    <string name="standard">标准</string>
+    <string name="moment_ice_tec">瞬冷冻</string>
+    <string name="moment_ice_green">瞬冷冻</string>
+    <string name="moment_ice_room">瞬冷冻室</string>
+    <string name="freeze_room">冷冻室</string>
+    <string name="freeze">冷冻</string>
+    <string name="temp_changed_room">变温室</string>
+    <string name="quick">快速</string>
+    <string name="stop">停止</string>
+    <string name="cancel">取消</string>
+    <string name="confirm">确认</string>
+    <string name="alert">提示</string>
+    <string name="close_cold_storage">即将关闭冷藏室，里面是否没有存放食物</string>
+    <string name="close_temp_change">即将关闭变温室，里面是否没有存放食物</string>
 
 </resources>

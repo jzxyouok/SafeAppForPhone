@@ -241,6 +241,22 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int customNavigationLayout=0x7f01002e;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int desc_off=0x7f01006c;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int desc_on=0x7f01006b;
         /**  Whether this spinner should mark child views as enabled/disabled when
              the spinner itself is enabled/disabled. 
          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
@@ -750,6 +766,14 @@ containing a value of this type.
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int titleTextStyle=0x7f010026;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int tittle=0x7f01006a;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -982,33 +1006,73 @@ containing a value of this type.
         public static final int abc_textfield_searchview_holo_light=0x7f020054;
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
-        public static final int fun_turbo=0x7f020057;
-        public static final int ic_launcher=0x7f020058;
-        public static final int loading_01=0x7f020059;
-        public static final int loading_02=0x7f02005a;
-        public static final int loading_03=0x7f02005b;
-        public static final int loading_04=0x7f02005c;
-        public static final int loading_05=0x7f02005d;
-        public static final int loading_06=0x7f02005e;
-        public static final int loading_07=0x7f02005f;
-        public static final int loading_08=0x7f020060;
-        public static final int loading_09=0x7f020061;
-        public static final int loading_10=0x7f020062;
-        public static final int loading_11=0x7f020063;
-        public static final int loading_12=0x7f020064;
-        public static final int loading_anim=0x7f020065;
-        public static final int snow=0x7f020066;
-        public static final int splash_bg=0x7f020067;
-        public static final int st01=0x7f020068;
-        public static final int st02=0x7f020069;
-        public static final int st03=0x7f02006a;
-        public static final int st04=0x7f02006b;
-        public static final int st05=0x7f02006c;
-        public static final int st06=0x7f02006d;
-        public static final int st07=0x7f02006e;
-        public static final int st08=0x7f02006f;
-        public static final int st09=0x7f020070;
-        public static final int toast_bg=0x7f020071;
+        public static final int back_right=0x7f020057;
+        public static final int ceo=0x7f020058;
+        public static final int ceo_bg_white=0x7f020059;
+        public static final int close_independence_dialog=0x7f02005a;
+        public static final int degerming=0x7f02005b;
+        public static final int freeze_android=0x7f02005c;
+        public static final int freeze_room_bg=0x7f02005d;
+        public static final int fun_turbo=0x7f02005e;
+        public static final int graybtn_shape=0x7f02005f;
+        public static final int greenbtn_shape=0x7f020060;
+        public static final int holiday_green=0x7f020061;
+        public static final int holiday_icon=0x7f020062;
+        public static final int ic_launcher=0x7f020063;
+        public static final int ic_room_bg_white=0x7f020064;
+        public static final int ice_room_bg=0x7f020065;
+        public static final int icon_adjust=0x7f020066;
+        public static final int icon_ceo=0x7f020067;
+        public static final int icon_degerming=0x7f020068;
+        public static final int icon_idpdce_lonely=0x7f020069;
+        public static final int icon_intelligent=0x7f02006a;
+        public static final int icon_orange=0x7f02006b;
+        public static final int icon_password=0x7f02006c;
+        public static final int icon_password2=0x7f02006d;
+        public static final int icon_pean=0x7f02006e;
+        public static final int loading_01=0x7f02006f;
+        public static final int loading_02=0x7f020070;
+        public static final int loading_03=0x7f020071;
+        public static final int loading_04=0x7f020072;
+        public static final int loading_05=0x7f020073;
+        public static final int loading_06=0x7f020074;
+        public static final int loading_07=0x7f020075;
+        public static final int loading_08=0x7f020076;
+        public static final int loading_09=0x7f020077;
+        public static final int loading_10=0x7f020078;
+        public static final int loading_11=0x7f020079;
+        public static final int loading_12=0x7f02007a;
+        public static final int loading_anim=0x7f02007b;
+        public static final int main_bg=0x7f02007c;
+        public static final int moment_freeze_bg=0x7f02007d;
+        public static final int moment_freeze_bg_white=0x7f02007e;
+        public static final int navigation_ref=0x7f02007f;
+        public static final int poikilothermal_bg_white=0x7f020080;
+        public static final int poikilothermal_gray=0x7f020081;
+        public static final int poikilothermal_green=0x7f020082;
+        public static final int poikilothermal_room_bg=0x7f020083;
+        public static final int ref_switch=0x7f020084;
+        public static final int refrigeration_bg_gray=0x7f020085;
+        public static final int refrigeration_bg_white=0x7f020086;
+        public static final int refrigeration_room_bg=0x7f020087;
+        public static final int sliding_down=0x7f020088;
+        public static final int sliding_up=0x7f020089;
+        public static final int snow=0x7f02008a;
+        public static final int splash_bg=0x7f02008b;
+        public static final int st01=0x7f02008c;
+        public static final int st02=0x7f02008d;
+        public static final int st03=0x7f02008e;
+        public static final int st04=0x7f02008f;
+        public static final int st05=0x7f020090;
+        public static final int st06=0x7f020091;
+        public static final int st07=0x7f020092;
+        public static final int st08=0x7f020093;
+        public static final int st09=0x7f020094;
+        public static final int switch_off_ref=0x7f020095;
+        public static final int switch_on_ref=0x7f020096;
+        public static final int temp_add=0x7f020097;
+        public static final int temp_reduce=0x7f020098;
+        public static final int toast_bg=0x7f020099;
     }
     public static final class id {
         public static final int action_bar=0x7f09001c;
@@ -1022,7 +1086,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f090002;
         public static final int action_menu_presenter=0x7f090003;
         public static final int action_mode_close_button=0x7f090024;
-        public static final int action_settings=0x7f09004b;
+        public static final int action_settings=0x7f09004c;
         public static final int activity_chooser_view_content=0x7f090025;
         public static final int always=0x7f09000f;
         public static final int beginning=0x7f090016;
@@ -1044,22 +1108,22 @@ containing a value of this type.
         public static final int ifRoom=0x7f090011;
         public static final int image=0x7f090027;
         public static final int item1=0x7f09003c;
-        public static final int itemimg=0x7f090042;
-        public static final int itemtext=0x7f090043;
+        public static final int itemimg=0x7f090043;
+        public static final int itemtext=0x7f090044;
         public static final int listMode=0x7f090006;
         public static final int list_item=0x7f090029;
-        public static final int loading=0x7f090049;
+        public static final int loading=0x7f09004a;
         public static final int middle=0x7f090018;
-        public static final int my_gridview=0x7f090045;
+        public static final int my_gridview=0x7f090046;
         public static final int never=0x7f090012;
         public static final int none=0x7f090019;
         public static final int normal=0x7f090007;
-        public static final int progress=0x7f09004a;
+        public static final int progress=0x7f09004b;
         public static final int progress_circular=0x7f090004;
         public static final int progress_horizontal=0x7f090005;
         public static final int radio=0x7f09002f;
-        public static final int rl=0x7f090046;
-        public static final int screen=0x7f090044;
+        public static final int rl=0x7f090047;
+        public static final int screen=0x7f090045;
         public static final int search_badge=0x7f090032;
         public static final int search_bar=0x7f090031;
         public static final int search_button=0x7f090033;
@@ -1077,13 +1141,14 @@ containing a value of this type.
         public static final int split_action_bar=0x7f09001e;
         public static final int submit_area=0x7f090039;
         public static final int tabMode=0x7f090008;
+        public static final int tip_text=0x7f090041;
         public static final int title=0x7f09002b;
         public static final int top_action_bar=0x7f090020;
-        public static final int tv_splash_title=0x7f090047;
-        public static final int tv_splash_version=0x7f090048;
+        public static final int tv_splash_title=0x7f090048;
+        public static final int tv_splash_version=0x7f090049;
         public static final int txt=0x7f09003d;
         public static final int up=0x7f090021;
-        public static final int updata_chebox=0x7f090041;
+        public static final int updata_chebox=0x7f090042;
         public static final int updata_text=0x7f090040;
         public static final int useLogo=0x7f09000e;
         public static final int withText=0x7f090013;
@@ -1190,9 +1255,26 @@ containing a value of this type.
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
         public static final int action_settings=0x7f0a0010;
+        public static final int alert=0x7f0a0020;
         public static final int app_name=0x7f0a000e;
+        public static final int cancel=0x7f0a001e;
+        public static final int close_cold_storage=0x7f0a0021;
+        public static final int close_temp_change=0x7f0a0022;
+        public static final int code_storage_room=0x7f0a0013;
+        public static final int confirm=0x7f0a001f;
+        public static final int freeze=0x7f0a001a;
+        public static final int freeze_room=0x7f0a0019;
         public static final int hello_world=0x7f0a000f;
+        public static final int ice_maked_room=0x7f0a0014;
+        public static final int moment_ice_green=0x7f0a0017;
+        public static final int moment_ice_room=0x7f0a0018;
+        public static final int moment_ice_tec=0x7f0a0016;
+        public static final int quick=0x7f0a001c;
+        public static final int refrigerator=0x7f0a0012;
         public static final int serviceurl=0x7f0a000d;
+        public static final int standard=0x7f0a0015;
+        public static final int stop=0x7f0a001d;
+        public static final int temp_changed_room=0x7f0a001b;
         public static final int version=0x7f0a0011;
     }
     public static final class style {
@@ -1409,6 +1491,22 @@ containing a value of this type.
         public static final int Widget_AppCompat_ProgressBar=0x7f0b000a;
         public static final int Widget_AppCompat_ProgressBar_Horizontal=0x7f0b0009;
         public static final int Widget_AppCompat_Spinner_DropDown_ActionBar=0x7f0b0022;
+        public static final int close_dialog=0x7f0b008c;
+        /**  冰箱标题文字 
+         */
+        public static final int ref_18_gray=0x7f0b0088;
+        /**  冰箱标题文字 
+         */
+        public static final int ref_18_white=0x7f0b0087;
+        /**  冰箱展开后灰色温度 
+         */
+        public static final int ref_24_gray=0x7f0b008b;
+        /**  展开后冰箱白色字体大小 
+         */
+        public static final int ref_24_white=0x7f0b008a;
+        /**  冰箱温度 
+         */
+        public static final int ref_68_white=0x7f0b0089;
         /**  首页的标题文字 
          */
         public static final int splash_title=0x7f0b0085;
@@ -2769,6 +2867,65 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           @attr name com.gree.parsexml:spinnerMode
         */
         public static final int Spinner_spinnerMode = 7;
+        /** Attributes that can be used with a TextView.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #TextView_desc_off com.gree.parsexml:desc_off}</code></td><td></td></tr>
+           <tr><td><code>{@link #TextView_desc_on com.gree.parsexml:desc_on}</code></td><td></td></tr>
+           <tr><td><code>{@link #TextView_tittle com.gree.parsexml:tittle}</code></td><td></td></tr>
+           </table>
+           @see #TextView_desc_off
+           @see #TextView_desc_on
+           @see #TextView_tittle
+         */
+        public static final int[] TextView = {
+            0x7f01006a, 0x7f01006b, 0x7f01006c
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.gree.parsexml.R.attr#desc_off}
+          attribute's value can be found in the {@link #TextView} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.gree.parsexml:desc_off
+        */
+        public static final int TextView_desc_off = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.gree.parsexml.R.attr#desc_on}
+          attribute's value can be found in the {@link #TextView} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.gree.parsexml:desc_on
+        */
+        public static final int TextView_desc_on = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.gree.parsexml.R.attr#tittle}
+          attribute's value can be found in the {@link #TextView} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.gree.parsexml:tittle
+        */
+        public static final int TextView_tittle = 0;
         /**  These are the standard attributes that make up a complete theme. 
            <p>Includes the following attributes:</p>
            <table>

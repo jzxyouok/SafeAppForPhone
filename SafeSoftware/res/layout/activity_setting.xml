@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gree="http://schemas.android.com/apk/res/com.gree.parsexml"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
@@ -11,13 +12,15 @@
         android:background="#66cc66"
         android:gravity="center_vertical"
         android:text="设置中心" />
-    
-	<com.gree.tools.SettingGroupView 
+<!-- 第一个选项 -->   
+	<com.gree.wedget.SettingGroupView 
+	    gree:tittle="设置自动更新"
+	    gree:desc_on="自动更新已打开"
+	    gree:desc_off="自动更新已关闭"
 	    android:id="@+id/item1"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content">
-	    
-	</com.gree.tools.SettingGroupView>
+	</com.gree.wedget.SettingGroupView>
     
 	<TextView
         style="@style/TextAppearance.AppCompat.Base.Widget.PopupMenu.Large"

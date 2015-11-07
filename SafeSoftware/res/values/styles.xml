@@ -29,5 +29,39 @@
         <item name="android:textSize">14sp</item>
         
     </style>
-
+    
+    <!-- 冰箱标题文字 -->
+    <style name="ref_18_white">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">18sp</item>
+        
+    </style>
+    
+     <!-- 冰箱标题文字 -->
+    <style name="ref_18_gray">
+        <item name="android:textColor">#3f708e</item>
+        <item name="android:textSize">18sp</item>
+        
+    </style>
+    <!-- 冰箱温度 -->
+    <style name="ref_68_white">
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">68sp</item>
+    </style>
+    <!-- 展开后冰箱白色字体大小 -->
+	<style name="ref_24_white">
+	    <item name="android:textColor">#ffffff</item>
+	    <item name="android:textSize">28sp</item>
+	</style>
+	<!-- 冰箱展开后灰色温度 -->
+	<style name="ref_24_gray">
+	    <item name="android:textColor">#333333</item>
+	    <item name="android:textSize">68sp</item>
+	</style>
+	
+	<style name="close_dialog" parent="android:Theme.Dialog">
+	    <item name="android:windowNoTitle">true</item>
+	    <item name="android:windowBackground">@android:color/transparent</item>
+	    <item name="android:windowIsFloating">true</item>
+	</style>
 </resources>
