@@ -32,6 +32,6 @@
         android:clickable="false"
         android:focusable="false"
         android:focusableInTouchMode="false" 
-        android:checked="true"/>
+        android:checked="false"/>
 
  </RelativeLayout>

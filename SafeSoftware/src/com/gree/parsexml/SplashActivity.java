@@ -38,6 +38,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.gree.parsexml.R;
 import com.gree.tools.StreamUtils;
 import com.gree.tools.UIUtils;
 
@@ -110,7 +111,7 @@ public class SplashActivity extends Activity {
 		ad = (AnimationDrawable) loadingImg.getDrawable();
 		// 渐变界面
 		aanim = new AlphaAnimation(0.2f, 1.0f);
-		aanim.setDuration(500);
+		aanim.setDuration(1000);
 		// 设置渐变动画
 		rl = (RelativeLayout) findViewById(R.id.rl);
 		rl.startAnimation(aanim);
@@ -148,7 +149,7 @@ public class SplashActivity extends Activity {
 					enterHome();
 
 				}
-			}, 2000);
+			}, 3000);
 		}
 	}
 
@@ -171,7 +172,7 @@ public class SplashActivity extends Activity {
 					// 设置请求方式
 					conn.setRequestMethod("GET");
 					// 超时时间
-					conn.setConnectTimeout(1000);
+					conn.setConnectTimeout(3000);
 					// 得到getResponseCode响应码
 					int code = conn.getResponseCode();
 					if (code == 200) {
@@ -223,9 +224,9 @@ public class SplashActivity extends Activity {
 					long endTime = System.currentTimeMillis();
 					// 花的时间
 					long sTime = endTime - startTime;
-					if (sTime < 2000) {
+					if (sTime < 6000) {
 						try {
-							Thread.sleep(2000 - sTime);
+							Thread.sleep(6000 - sTime);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 							UIUtils.showToast(SplashActivity.this, "连接超时");

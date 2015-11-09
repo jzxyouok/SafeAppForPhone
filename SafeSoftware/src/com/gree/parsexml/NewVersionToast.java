@@ -1,5 +1,7 @@
 package com.gree.parsexml;
 
+import com.gree.parsexml.R;
+
 import android.app.Activity;
 import android.os.Bundle;
 
