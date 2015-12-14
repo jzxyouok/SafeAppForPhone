@@ -22,5 +22,12 @@
     <string name="alert">提示</string>
     <string name="close_cold_storage">即将关闭冷藏室，里面是否没有存放食物</string>
     <string name="close_temp_change">即将关闭变温室，里面是否没有存放食物</string>
+    <string name="input_password">请输入密码</string>
+    <string name="ensure">确认</string>
+    <string name="cancle">取消</string>
+    <string name="input_pwd">输入密码</string>
+    <string name="setting_password">请设置密码</string>
+    <string name="setting_pwd">设置密码</string>
+    <string name="ensure_input_pwd">确认输入</string>
 
 </resources>

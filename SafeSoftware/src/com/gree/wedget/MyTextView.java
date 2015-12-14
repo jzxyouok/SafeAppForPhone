@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 
 /**
+ * 自定义组件
  * 设置一个永远处在获取了焦点状态的TextView
  * @author susan
  *

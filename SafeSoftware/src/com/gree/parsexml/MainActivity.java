@@ -1,27 +1,32 @@
 package com.gree.parsexml;
 
-import com.gree.application.MyApplication;
-import com.gree.parsexml.R;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.gree.application.MyApplication;
 
 public class MainActivity extends Activity {
 	private MyApplication ma;
-	
+
 	private GridView my_gridview;
 	// 文字内容
 	private String txts[] = { "手机防盗", "通讯卫视", "软件管理", "进程管理", "流量统计", "手机杀毒",
@@ -31,15 +36,24 @@ public class MainActivity extends Activity {
 			R.drawable.st04, R.drawable.st05, R.drawable.st06, R.drawable.st07,
 			R.drawable.st08, R.drawable.st09 };
 	private SelfAdapter adapter;
-	
+
 	private SharedPreferences sp;
 	private Editor edit;
+	// 确认密码界面
+	private EditText inputPwd;
+	private EditText reinputPwd;
+	private Button ensureBtn;
+	private Button cancelBtn;
+	private Button inputCancelBtn;
+	private Button inputEnsureBtn;
+	private EditText inputPassword;
+	private AlertDialog dialog;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home_main);
-		
+
 		initView();
 		initListener();
 
@@ -47,8 +61,8 @@ public class MainActivity extends Activity {
 
 	public void initView() {
 		my_gridview = (GridView) findViewById(R.id.my_gridview);
-		ma=new MyApplication();
-		sp=getSharedPreferences("config",MODE_PRIVATE);
+		ma = new MyApplication();
+		sp = getSharedPreferences("config", MODE_PRIVATE);
 	}
 
 	public void initListener() {
@@ -66,33 +80,157 @@ public class MainActivity extends Activity {
 
 				switch (position) {
 				case 8:
+					// 设置中心
 					Intent intent = new Intent();
 					intent.setClass(MainActivity.this, SettingActivity.class);
 					startActivity(intent);
 					break;
 				case 0:
-					//手机防盗页面
+					// 手机防盗页面
 					showMyDialog();
-					Intent oneIntent=new Intent();
-
+					Intent scIntent=new Intent();
+					
+					
+					System.out.println("gagagagagagaga");
 				default:
 					break;
 				}
 			}
 		});
 	}
-	//判断是否设置过密码
+
+	/**
+	 *  判断是否设置过密码
+	 */
 	protected void showMyDialog() {
-		
+		if (isSetPas()) {
+			// 弹出输入密码框
+			showEnterDialog();
+		} else {
+			// 弹出设置密码框
+			showSetDialogDialog();
+		}
+
 	}
-	
-	private boolean isSetPas(){
-		String pwd=sp.getString("password", null);
-//		if (TextUtils.isEmpty(pwd)) {
-//			return false;
-//		}
+
+	/**
+	 * 设置密码
+	 * 
+	 * @return
+	 */
+	private void showSetDialogDialog() {
+		AlertDialog.Builder setPwdBuilder = new Builder(MainActivity.this);
+		View view = View.inflate(MainActivity.this, R.layout.setpwd, null);
+		inputPwd = (EditText) view.findViewById(R.id.input_pwd);
+		reinputPwd = (EditText) view.findViewById(R.id.reinput_pwd);
+		ensureBtn = (Button) view.findViewById(R.id.ensure);
+		cancelBtn = (Button) view.findViewById(R.id.cancel);
+
+		cancelBtn.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+			}
+		});
+
+		ensureBtn.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// 取出密码
+				String password = inputPwd.getText().toString().trim();
+				String repassword = reinputPwd.getText().toString().trim();
+				// 比较一和二是否相同，不同提示
+				if (TextUtils.isEmpty(password)
+						|| TextUtils.isEmpty(repassword)) {
+					Toast.makeText(MainActivity.this, "密码为空，请输入密码",
+							Toast.LENGTH_SHORT).show();
+					return;
+				}
+				if (password.equals(repassword)) {
+					// 保存密码 去掉对话框 进入手机防盗页面
+					Editor edit = sp.edit();
+					edit.putString("password", password);
+					edit.commit();// 提交
+					dialog.dismiss();
+					// 进入主界面
+
+				} else {
+					Toast.makeText(MainActivity.this, "密码不一致",
+							Toast.LENGTH_SHORT).show();
+					return;
+				}
+			}
+		});
+
+		setPwdBuilder.setView(view);
+		// 显示
+		dialog = setPwdBuilder.show();
+	}
+
+	/**
+	 * 直接输入密码
+	 */
+	private void showEnterDialog() {
+		AlertDialog.Builder inPwdBuilder = new Builder(MainActivity.this);
+		View view = View.inflate(MainActivity.this, R.layout.input_password,
+				null);
+		inputPassword = (EditText) view.findViewById(R.id.reinput_pwd);
+		inputEnsureBtn = (Button) view.findViewById(R.id.ensure);
+		inputCancelBtn = (Button) view.findViewById(R.id.cancel);
+
+		inputCancelBtn.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+			}
+		});
+
+		inputEnsureBtn.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				// 取出密码
+				String password = inputPassword.getText().toString().trim();
+				String setPassword = sp.getString("password", "");
+				// 比较一和二是否相同，不同提示
+				if (TextUtils.isEmpty(password)) {
+					Toast.makeText(MainActivity.this, "密码为空，请输入密码",
+							Toast.LENGTH_SHORT).show();
+					return;
+				}
+				if (password.equals(setPassword)) {
+					dialog.dismiss();
+					// 进入主界面
+					System.out.println("呵呵");
+
+				} else {
+					Toast.makeText(MainActivity.this, "密码错误",
+							Toast.LENGTH_SHORT).show();
+					return;
+				}
+			}
+		});
+
+		inPwdBuilder.setView(view);
+		// 显示
+		dialog = inPwdBuilder.show();
+	}
+
+	/**
+	 * 判断是否设置过密码
+	 * 
+	 * @return
+	 */
+	private boolean isSetPas() {
+		String pwd = sp.getString("password", null);
+		// if (TextUtils.isEmpty(pwd)) {
+		// return false;
+		// }
 		return !TextUtils.isEmpty(pwd);
-		
+
 	}
 
 	/**
@@ -132,7 +270,6 @@ public class MainActivity extends Activity {
 			text.setText(txts[position]);// 某个位置上的
 			ImageView image = (ImageView) v.findViewById(R.id.itemimg);
 			image.setBackgroundResource(imgs[position]);
-
 			// 返回这个view
 			return v;
 		}

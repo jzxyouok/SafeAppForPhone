@@ -60,8 +60,6 @@ public class SettingGroupView extends RelativeLayout {
 		desc_on=attrs.getAttributeValue("http://schemas.android.com/apk/res/com.gree.parsexml","desc_on");
 		desc_off=attrs.getAttributeValue("http://schemas.android.com/apk/res/com.gree.parsexml","desc_off");
 		myText.setText(title);
-		
-		
 	}
 
 	public SettingGroupView(Context context) {
@@ -77,7 +75,6 @@ public class SettingGroupView extends RelativeLayout {
 	//摄制组和控件的焦点
 	public void setChecked(boolean checked){
 		if (checked) {
-			
 			setTipTxt(desc_on);
 		} else {
 			setTipTxt(desc_off);

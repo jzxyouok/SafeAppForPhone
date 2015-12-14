@@ -172,7 +172,7 @@ public class SplashActivity extends Activity {
 					// 设置请求方式
 					conn.setRequestMethod("GET");
 					// 超时时间
-					conn.setConnectTimeout(3000);
+					conn.setConnectTimeout(1000);
 					// 得到getResponseCode响应码
 					int code = conn.getResponseCode();
 					if (code == 200) {
@@ -224,9 +224,9 @@ public class SplashActivity extends Activity {
 					long endTime = System.currentTimeMillis();
 					// 花的时间
 					long sTime = endTime - startTime;
-					if (sTime < 6000) {
+					if (sTime < 3000) {
 						try {
-							Thread.sleep(6000 - sTime);
+							Thread.sleep(3000 - sTime);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 							UIUtils.showToast(SplashActivity.this, "连接超时");
