@@ -26,7 +26,7 @@
         
     </style>
     <!-- 首页版本号文字 -->
-    <style name="splash_version">
+    <style name="splash_version" >
         <item name="android:textColor">#ffffff</item>
         <item name="android:textSize">14sp</item>
         

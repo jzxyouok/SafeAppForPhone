@@ -178,9 +178,6 @@ public class SplashActivity extends Activity {
 					if (code == 200) {
 						InputStream is = conn.getInputStream();// json文本
 						String myJson = StreamUtils.readStream(is);
-						System.out
-								.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-										+ myJson);
 						if (TextUtils.isEmpty(myJson)) {
 							// 获取失败
 							Log.e("MainActivity", "获取失败");

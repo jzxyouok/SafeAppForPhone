@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gree.application.MyApplication;
+import com.gree.tools.MD5Entry;
 
 public class MainActivity extends Activity {
 	private MyApplication ma;
@@ -88,9 +89,6 @@ public class MainActivity extends Activity {
 				case 0:
 					// 手机防盗页面
 					showMyDialog();
-					Intent scIntent=new Intent();
-					
-					
 					System.out.println("gagagagagagaga");
 				default:
 					break;
@@ -141,6 +139,7 @@ public class MainActivity extends Activity {
 				// 取出密码
 				String password = inputPwd.getText().toString().trim();
 				String repassword = reinputPwd.getText().toString().trim();
+				String entryPassword=MD5Entry.mdPassword(password);
 				// 比较一和二是否相同，不同提示
 				if (TextUtils.isEmpty(password)
 						|| TextUtils.isEmpty(repassword)) {
@@ -151,10 +150,14 @@ public class MainActivity extends Activity {
 				if (password.equals(repassword)) {
 					// 保存密码 去掉对话框 进入手机防盗页面
 					Editor edit = sp.edit();
-					edit.putString("password", password);
+					edit.putString("password", MD5Entry.mdPassword(password));//保存加密的密码
 					edit.commit();// 提交
 					dialog.dismiss();
 					// 进入主界面
+					// 进入主界面
+					System.out.println("呵呵，进入主界面");
+					
+					
 
 				} else {
 					Toast.makeText(MainActivity.this, "密码不一致",
@@ -194,6 +197,7 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				// 取出密码
 				String password = inputPassword.getText().toString().trim();
+				String entryPassword=MD5Entry.mdPassword(password);//加密
 				String setPassword = sp.getString("password", "");
 				// 比较一和二是否相同，不同提示
 				if (TextUtils.isEmpty(password)) {
@@ -201,10 +205,10 @@ public class MainActivity extends Activity {
 							Toast.LENGTH_SHORT).show();
 					return;
 				}
-				if (password.equals(setPassword)) {
+				if (MD5Entry.mdPassword(password).equals(setPassword)) {
 					dialog.dismiss();
 					// 进入主界面
-					System.out.println("呵呵");
+					System.out.println("呵呵，进入主界面");
 
 				} else {
 					Toast.makeText(MainActivity.this, "密码错误",
