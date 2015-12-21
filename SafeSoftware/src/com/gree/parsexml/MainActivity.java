@@ -23,6 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gree.application.MyApplication;
+import com.gree.parsexml.R;
 import com.gree.tools.MD5Entry;
 
 public class MainActivity extends Activity {
@@ -53,7 +54,7 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.home_main);
+		setContentView(R.layout.activity_home_main);
 
 		initView();
 		initListener();
@@ -83,7 +84,7 @@ public class MainActivity extends Activity {
 				case 8:
 					// 设置中心
 					Intent intent = new Intent();
-					intent.setClass(MainActivity.this, SettingActivity.class);
+					intent.setClass(MainActivity.this, SettingCenterActivity.class);
 					startActivity(intent);
 					break;
 				case 0:
@@ -118,7 +119,7 @@ public class MainActivity extends Activity {
 	 */
 	private void showSetDialogDialog() {
 		AlertDialog.Builder setPwdBuilder = new Builder(MainActivity.this);
-		View view = View.inflate(MainActivity.this, R.layout.setpwd, null);
+		View view = View.inflate(MainActivity.this, R.layout.dialog_setting_password, null);
 		inputPwd = (EditText) view.findViewById(R.id.input_pwd);
 		reinputPwd = (EditText) view.findViewById(R.id.reinput_pwd);
 		ensureBtn = (Button) view.findViewById(R.id.ensure);
@@ -156,8 +157,8 @@ public class MainActivity extends Activity {
 					// 进入主界面
 					// 进入主界面
 					System.out.println("呵呵，进入主界面");
-					
-					
+					Intent intent=new Intent(MainActivity.this,LostSettingActivity.class);
+					startActivity(intent);
 
 				} else {
 					Toast.makeText(MainActivity.this, "密码不一致",
@@ -177,7 +178,7 @@ public class MainActivity extends Activity {
 	 */
 	private void showEnterDialog() {
 		AlertDialog.Builder inPwdBuilder = new Builder(MainActivity.this);
-		View view = View.inflate(MainActivity.this, R.layout.input_password,
+		View view = View.inflate(MainActivity.this, R.layout.dialog_input_password,
 				null);
 		inputPassword = (EditText) view.findViewById(R.id.reinput_pwd);
 		inputEnsureBtn = (Button) view.findViewById(R.id.ensure);
@@ -209,7 +210,8 @@ public class MainActivity extends Activity {
 					dialog.dismiss();
 					// 进入主界面
 					System.out.println("呵呵，进入主界面");
-
+					Intent intent=new Intent(MainActivity.this,LostSettingActivity.class);
+					startActivity(intent);
 				} else {
 					Toast.makeText(MainActivity.this, "密码错误",
 							Toast.LENGTH_SHORT).show();

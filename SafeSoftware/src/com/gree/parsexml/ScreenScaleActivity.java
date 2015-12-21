@@ -24,7 +24,7 @@ public class ScreenScaleActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.home_main);
+		setContentView(R.layout.activity_home_main);
 		
 		DisplayMetrics metric = new DisplayMetrics();
 	      getWindowManager().getDefaultDisplay().getMetrics(metric);

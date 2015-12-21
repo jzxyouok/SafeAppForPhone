@@ -10,6 +10,7 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
     <application
         android:name="com.gree.application.MyApplication"
@@ -29,9 +30,14 @@
         <activity android:name="com.gree.parsexml.MainActivity"></activity>
         <activity android:name="com.gree.parsexml.NewVersionToast"
             android:theme="@android:style/Animation.Dialog"></activity>
-    	<activity android:name="com.gree.parsexml.SettingActivity"></activity>
+    	<activity android:name="com.gree.parsexml.SettingCenterActivity"></activity>
     <!-- 获取屏幕尺寸activity -->
     	<activity android:name="com.gree.parsexml.ScreenScaleActivity"></activity>
+    	<activity android:name="com.gree.parsexml.LostSettingActivity"></activity>
+    	<activity android:name="com.gree.parsexml.LostSettingActivityone"></activity>
+    	<activity android:name="com.gree.parsexml.LostSettingActivitytwo"></activity>
+    	<activity android:name="com.gree.parsexml.LostSettingActivitythree"></activity>
+    	<activity android:name="com.gree.parsexml.LostSettingActivityfour"></activity>
     
     </application>
 
